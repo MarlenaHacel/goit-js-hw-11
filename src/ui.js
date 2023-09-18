@@ -1,8 +1,7 @@
 import pingPixabay from './gallery-api';
 const imageContainer = document.querySelector('.gallery');
 const getImageElement = image => {
-  const imageElementHTML = image.map(item => {
-    return `
+  return `
   <div class="photo-card">
       <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
       <div class="info">
@@ -11,15 +10,11 @@ const getImageElement = image => {
           <p class="info-item"><b>Komentarze:</b> ${image.comments}</p>
           <p class="info-item"><b>Pobrania:</b> ${image.downloads}</p>
       </div>
-  </div>
-`;
-  });
-
-  imageContainer.innerHTML = imageElementHTML.join('');
+  </div>`;
 };
 function drawImages({ images, page }) {
   if (page === '1') {
-    // imageContainer.innerHTML = '';
+    imageContainer.innerHTML = '';
   }
   const children = images.map(getImageElement);
   imageContainer.append(...children);
