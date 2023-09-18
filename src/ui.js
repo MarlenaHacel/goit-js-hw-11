@@ -1,5 +1,5 @@
 import pingPixabay from './gallery-api';
-const imageContainer = document.querySelector('.gallery');
+
 const getImageElement = image => {
   return `
   <div class="photo-card">
@@ -14,6 +14,7 @@ const getImageElement = image => {
 };
 function drawImages({ images, page }) {
   if (page === '1') {
+    const imageContainer = document.querySelector('.gallery');
     imageContainer.innerHTML = '';
   }
   const children = images.map(getImageElement);
