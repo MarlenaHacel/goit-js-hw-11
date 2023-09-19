@@ -13,12 +13,12 @@ const getImageElement = image => {
   </div>`;
 };
 function drawImages({ images, page }) {
+  const imageContainer = document.querySelector('.gallery');
   if (page === '1') {
-    const imageContainer = document.querySelector('.gallery');
     imageContainer.innerHTML = '';
   }
   const children = images.map(getImageElement);
-  imageContainer.append(...children);
+  imageContainer.innerHTML += children.join('');
 }
 export async function loadImages({ searchQuery, page }) {
   const images = await pingPixabay({ searchQuery, page });

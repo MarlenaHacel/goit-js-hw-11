@@ -5,5 +5,5 @@ const searchForm = document.querySelector('#search-form');
 searchForm.addEventListener('submit', searchForImages);
 searchForm.dispatchEvent(new Event('submit'));
 
-scrollHandler();
-window.addEventListener('scroll', scrollHandler);
+// scrollHandler();
+// window.addEventListener('scroll', scrollHandler);

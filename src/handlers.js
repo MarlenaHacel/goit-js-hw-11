@@ -1,19 +1,23 @@
 import { loadImages } from './ui.js';
-
+// const loadMoreBtn = document.querySelector('.load-more');
+// loadMoreBtn.addEventListener('click', loadMoreImages);
+let page = 1;
 export async function searchForImages(e) {
   e.preventDefault();
-  e.target.page.value = '1';
-  const q = e.target.searchQuery.value;
-  await loadImages({ searchQuery, page: '1' });
+  const searchQuery = e.target.searchQuery.value;
+  const page = '1';
+  await loadImages({ searchQuery, page });
 }
 
 export async function scrollHandler() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  // at the bottom of the page
+
   if (scrollTop + clientHeight >= scrollHeight) {
-    const searchForm = document.querySelector('#searchPhotosForm');
-    const page = parseInt(searchForm.page.value);
-    searchForm.page.value = page + 1;
-    await loadPhotos({ q: searchForm.q.value, page: searchForm.page.value });
+    const searchForm = document.querySelector('.search-form');
+    page += 1;
+    const searchQuery = searchForm.querySelector(
+      'input[name="searchQuery"]'
+    ).value;
+    await loadImages({ searchQuery, page: page + 1 });
   }
 }
