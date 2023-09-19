@@ -5,7 +5,7 @@ let page = 1;
 export async function searchForImages(e) {
   e.preventDefault();
   const searchQuery = e.target.searchQuery.value;
-  const page = '1';
+  // const page = '1';
   await loadImages({ searchQuery, page });
 }
 
