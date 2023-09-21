@@ -12,7 +12,7 @@ export async function searchForImages(e) {
     'input[name="searchQuery"]'
   ).value;
   await loadImages({ searchQuery, page: '1' });
-
+}
 
 export async function loadMoreImages() {
   page += 1;
