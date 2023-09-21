@@ -1,6 +1,6 @@
 import { loadImages } from './ui.js';
 
-const searchForm = document.querySelector('#search-form');
+const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 
 let page = 1;
@@ -19,5 +19,5 @@ export async function loadMoreImages() {
   const searchQuery = searchForm.querySelector(
     'input[name="searchQuery"]'
   ).value;
-  await loadImages({ searchQuery });
+  await loadImages({ searchQuery, page });
 }
